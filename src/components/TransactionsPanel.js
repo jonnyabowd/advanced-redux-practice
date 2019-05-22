@@ -1,5 +1,7 @@
 import React from 'react';
 import TransactionRow from './TransactionRow';
+import { connect } from 'react-redux';
+
 
 function TransactionsPanel(props) {
   return ( 
@@ -35,4 +37,11 @@ function TransactionsPanel(props) {
   );
 }
 
-export default TransactionsPanel;
+const mapStateToProps = (state) => {
+  return {
+    orders: state.orders
+  }
+}
+
+// export default TransactionsPanel;
+export default connect(mapStateToProps)(TransactionsPanel);
